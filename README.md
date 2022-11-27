@@ -12,6 +12,120 @@ This is a simple tutorial guide to building apis with nodejs, express, mongodb a
 - Schema : This is the blueprint for communication between the client and the server. It specifies the queries the client can make, type of data retrievableand relationship between types
 - Resolver : This is a function applied to every field and it specifies how that field is connected to the backend and fetches data for that field from a database
 
+# Available Queries and Fields
+- Get a client by id
+```
+{
+    user(id:"a6727122-4b65-462f-858d-4e961918d87b"){
+        id,
+        name,
+        email,
+        phone
+    }
+}
+```
+- Get a project and its associated client by id
+```
+{
+    project(id:"a6727122-4b65-462f-858d-4e961918d87b"){
+        id,
+        name,
+        description,
+        status,
+        client{
+            id,
+            name,
+            email,
+            phone
+        }
+    }
+}
+```
+- Get all clients
+```
+{
+    users{
+        id,
+        name,
+        email,
+        phone
+    }
+}
+```
+- Get all projects and their associated clients
+```
+{
+    projects{
+        id,
+        name,
+        description,
+        status,
+        client{
+            id,
+            name,
+            email,
+            phone
+        }
+    }
+}
+```
+
+
+# Available Mutations and Fields
+- Add a client
+```
+mutation{
+    addClient(name:"john doe", phone:"071111", email:"johndoe@gmail.com"){
+        name,
+        id,
+        phone,
+        email
+    }
+}
+```
+- Delete a client
+```
+mutation{
+    deleteClient(id:"a6727122-4b65-462f-858d-4e961918d87b"){
+        name,
+        phone,
+        email
+    }
+}
+```
+- Add a project
+```
+mutation{
+    addProject(name:"web dev", status:new, description:"develop a web app for client", clientId:"a6727122-4b65-462f-858d-4e961918d87b"){
+        name,
+        description,
+        status,
+        clientId
+    }
+}
+```
+- Delete a project
+```
+mutation{
+    deleteProject(id:"a6727122-4b65-462f-858d-4e961918d87b"){
+        name,
+        description,
+        status,
+        clientId
+    }
+}
+```
+- Update a project
+```
+mutation{
+    updateProject(id:"a6727122-4b65-462f-858d-4e961918d87b", name:"web development", status:completed, description:"develop a web app for client"){
+        name,
+        status,
+        description,
+        clientId
+    }
+}
+```
 # How to use
 - Ensure you have nodejs, git and mongodb installed locally.
 - clone this repository using `git clone https://github.com/alahirajeffrey/nodejs-mongodb-crud-app.git`
