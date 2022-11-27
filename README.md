@@ -12,7 +12,7 @@ This is a simple tutorial guide to building apis with nodejs, express, mongodb a
 - Schema : This is the blueprint for communication between the client and the server. It specifies the queries the client can make, type of data retrievableand relationship between types
 - Resolver : This is a function applied to every field and it specifies how that field is connected to the backend and fetches data for that field from a database
 
-# How to use
+# How to Setup Locally
 - Ensure you have nodejs, git and mongodb installed locally.
 - clone this repository using `git clone https://github.com/alahirajeffrey/nodejs-mongodb-crud-app.git`
 -  Navigate to project folder and install dependencies using `npm install`
